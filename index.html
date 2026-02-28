@@ -751,8 +751,16 @@
   }
 
   @media (max-width: 600px) {
-    nav { gap: 1rem; }
-    nav a { font-size: 0.85rem; }
+    nav {
+      gap: 0.5rem;
+      padding: 0.9rem 0.8rem;
+      flex-wrap: nowrap;
+    }
+    nav a {
+      font-size: 0.68rem;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
     .hero-info { gap: 1.5rem; }
     .seat-grid { gap: 1rem; }
     .seat-card { width: 110px; }
