@@ -13,7 +13,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://seouloratorio.github.io/The-87th-Regular-Concert-of-Seouloratorio-">
-<link href="https://github.com/seouloratorio/The-87th-Regular-Concert-of-Seouloratorio-/blob/main/%EC%A0%9C87%ED%9A%8C%20%EC%84%9C%EC%9A%B8%EC%98%A4%EB%9D%BC%ED%86%A0%EB%A6%AC%EC%98%A4%20%EC%A0%95%EA%B8%B0%EC%97%B0%EC%A3%BC%ED%9A%8C%20%ED%8F%AC%EC%8A%A4%ED%84%B0.jpg" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --gold: #C9A84C;
@@ -211,13 +211,8 @@
     z-index: -1;
   }
 
-  .poster-btn:hover {
-    color: var(--deep);
-  }
-
-  .poster-btn:hover::before {
-    transform: translateX(0);
-  }
+  .poster-btn:hover { color: var(--deep); }
+  .poster-btn:hover::before { transform: translateX(0); }
 
   /* POSTER MODAL */
   .modal-overlay {
@@ -238,10 +233,7 @@
     width: 100%;
   }
 
-  .modal-content img {
-    width: 100%;
-    display: block;
-  }
+  .modal-content img { width: 100%; display: block; }
 
   .modal-close {
     position: absolute;
@@ -265,10 +257,7 @@
     justify-content: center;
   }
 
-  .program-inner {
-    max-width: 900px;
-    width: 100%;
-  }
+  .program-inner { max-width: 900px; width: 100%; }
 
   .section-eyebrow {
     font-family: 'Cinzel', serif;
@@ -298,9 +287,7 @@
     margin-bottom: 3rem;
   }
 
-  .program-heading span {
-    color: var(--gold);
-  }
+  .program-heading span { color: var(--gold); }
 
   .program-body p {
     font-family: 'Noto Serif KR', serif;
@@ -315,7 +302,6 @@
   #page3 {
     padding: 8rem 2rem;
     background: var(--deep);
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -456,11 +442,7 @@
     flex-direction: column;
   }
 
-  .tickets-header {
-    text-align: center;
-    margin-bottom: 3rem;
-    width: 100%;
-  }
+  .tickets-header { text-align: center; margin-bottom: 3rem; width: 100%; }
 
   .tickets-title {
     font-family: 'Cinzel', serif;
@@ -470,10 +452,7 @@
     margin-bottom: 1rem;
   }
 
-  .tickets-inner {
-    max-width: 900px;
-    width: 100%;
-  }
+  .tickets-inner { max-width: 900px; width: 100%; }
 
   .ticket-section {
     border: 1px solid rgba(201,168,76,0.4);
@@ -490,15 +469,6 @@
     top: 0; left: 0; right: 0;
     height: 2px;
     background: linear-gradient(to right, transparent, var(--gold), transparent);
-  }
-
-  .ticket-title {
-    font-family: 'Cinzel', serif;
-    font-size: 0.88rem;
-    letter-spacing: 0.3em;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
   }
 
   .ticket-prices {
@@ -551,26 +521,12 @@
     white-space: nowrap;
   }
 
-  .ticket-link:hover {
-    background: var(--gold);
-    color: var(--deep);
-  }
-
-  .ticket-tel {
-    font-size: 0.78rem;
-    opacity: 0.8;
-    letter-spacing: 0.15em;
-  }
+  .ticket-link:hover { background: var(--gold); color: var(--deep); }
+  .ticket-tel { font-size: 0.78rem; opacity: 0.8; letter-spacing: 0.15em; }
 
   @media (max-width: 600px) {
-    .ticket-link {
-      white-space: normal;
-      width: 100%;
-      letter-spacing: 0.05em;
-    }
-    .ticket-links {
-      flex-direction: column;
-    }
+    .ticket-link { white-space: normal; width: 100%; letter-spacing: 0.05em; }
+    .ticket-links { flex-direction: column; }
   }
 
   /* ===== PAGE 5 - DIRECTIONS ===== */
@@ -584,10 +540,7 @@
     min-height: 100vh;
   }
 
-  .directions-inner {
-    max-width: 900px;
-    width: 100%;
-  }
+  .directions-inner { max-width: 900px; width: 100%; }
 
   .venue-name {
     font-family: 'Cinzel', serif;
@@ -605,7 +558,6 @@
     margin-top: 0.6rem;
   }
 
-  /* 카카오 Roughmap 반응형 */
   .map-wrapper {
     position: relative;
     width: 100%;
@@ -616,35 +568,11 @@
     margin-bottom: 3rem;
   }
 
-  .map-wrapper .root_daum_roughmap {
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-  }
+  .map-wrapper .root_daum_roughmap { position: absolute !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; }
+  .map-wrapper .roughmap_wrap, .map-wrapper .wrap_map { width: 100% !important; height: 100% !important; }
+  .map-wrapper iframe { position: absolute !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; border: none !important; filter: grayscale(30%) brightness(0.9); }
 
-  .map-wrapper .roughmap_wrap,
-  .map-wrapper .wrap_map {
-    width: 100% !important;
-    height: 100% !important;
-  }
-
-  .map-wrapper iframe {
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    border: none !important;
-    filter: grayscale(30%) brightness(0.9);
-  }
-
-  @media (max-width: 480px) {
-    .map-wrapper {
-      padding-bottom: 75%;
-    }
-  }
+  @media (max-width: 480px) { .map-wrapper { padding-bottom: 75%; } }
 
   .transport-grid {
     display: flex;
@@ -661,9 +589,7 @@
     overflow: hidden;
   }
 
-  .transport-card:last-child {
-    border-bottom: none;
-  }
+  .transport-card:last-child { border-bottom: none; }
 
   .transport-header {
     display: flex;
@@ -675,14 +601,8 @@
     transition: background 0.2s;
   }
 
-  .transport-header:hover {
-    background: rgba(201,168,76,0.06);
-  }
-
-  .transport-icon {
-    font-size: 1.4rem;
-    flex-shrink: 0;
-  }
+  .transport-header:hover { background: rgba(201,168,76,0.06); }
+  .transport-icon { font-size: 1.4rem; flex-shrink: 0; }
 
   .transport-type {
     font-family: 'Cinzel', serif;
@@ -693,16 +613,8 @@
     flex: 1;
   }
 
-  .transport-arrow {
-    font-size: 0.75rem;
-    color: var(--gold);
-    transition: transform 0.3s ease;
-    opacity: 0.7;
-  }
-
-  .transport-card.open .transport-arrow {
-    transform: rotate(180deg);
-  }
+  .transport-arrow { font-size: 0.75rem; color: var(--gold); transition: transform 0.3s ease; opacity: 0.7; }
+  .transport-card.open .transport-arrow { transform: rotate(180deg); }
 
   .transport-info {
     font-size: 0.95rem;
@@ -716,10 +628,7 @@
     padding: 0 1.8rem;
   }
 
-  .transport-card.open .transport-info {
-    max-height: 1200px;
-    padding: 1.2rem 1.8rem 1.8rem;
-  }
+  .transport-card.open .transport-info { max-height: 1200px; padding: 1.2rem 1.8rem 1.8rem; }
 
   /* SCROLL ANIMATIONS */
   .reveal {
@@ -727,10 +636,7 @@
     transform: translateY(30px);
     transition: opacity 0.8s ease, transform 0.8s ease;
   }
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
 
   @keyframes fadeUp {
     to { opacity: 1; transform: translateY(0); }
@@ -752,22 +658,9 @@
   }
 
   @media (max-width: 600px) {
-    nav {
-      gap: 0.7rem;
-      padding: 0.9rem 0.5rem;
-      flex-wrap: nowrap;
-    }
-    nav a {
-      font-size: 0.75rem;
-      letter-spacing: 0.02em;
-      white-space: nowrap;
-    }
+    nav { gap: 0.7rem; padding: 0.9rem 0.5rem; flex-wrap: nowrap; }
+    nav a { font-size: 0.75rem; letter-spacing: 0.02em; white-space: nowrap; }
     .hero-info { gap: 1.5rem; }
-    .seat-grid { gap: 1rem; }
-    .seat-card { width: 110px; }
-    .seat-circle { width: 110px; height: 110px; }
-    .seat-grade { font-size: 1.3rem; }
-    .booking-card { width: 100%; }
   }
 </style>
 </head>
@@ -806,7 +699,7 @@
 <div class="modal-overlay" onclick="if(event.target===this)this.classList.remove('active')">
   <div class="modal-content">
     <button class="modal-close" onclick="document.querySelector('.modal-overlay').classList.remove('active')">× 닫기</button>
-    <img src="https://github.com/seouloratorio/The-87th-Regular-Concert-of-Seouloratorio-/blob/main/%EC%A0%9C87%ED%9A%8C%20%EC%84%9C%EC%9A%B8%EC%98%A4%EB%9D%BC%ED%86%A0%EB%A6%AC%EC%98%A4%20%EC%A0%95%EA%B8%B0%EC%97%B0%EC%A3%BC%ED%9A%8C%20%EB%A6%AC%ED%94%8C%EB%A0%9B.jpg?raw=true" alt="공연 포스터">
+    <img src="https://raw.githubusercontent.com/seouloratorio/The-87th-Regular-Concert-of-Seouloratorio-/main/%EC%A0%9C87%ED%9A%8C%20%EC%84%9C%EC%9A%B8%EC%98%A4%EB%9D%BC%ED%86%A0%EB%A6%AC%EC%98%A4%20%EC%A0%95%EA%B8%B0%EC%97%B0%EC%A3%BC%ED%9A%8C%20%ED%8F%AC%EC%8A%A4%ED%84%B0.jpg" alt="공연 포스터">
   </div>
 </div>
 
@@ -837,14 +730,14 @@
     <div class="performer-row reveal">
       <div class="performer-card">
         <div class="performer-photo">
-          <img src="https://github.com/seouloratorio/The-87th-Regular-Concert-of-Seouloratorio-/blob/main/%EC%86%8C%ED%94%84%EB%9D%BC%EB%85%B8%20%EB%85%B8%EC%88%98%EC%A0%95%20(3).png?raw=true" alt="소프라노 노수정">
+          <img src="https://raw.githubusercontent.com/seouloratorio/The-87th-Regular-Concert-of-Seouloratorio-/main/%EC%86%8C%ED%94%84%EB%9D%BC%EB%85%B8%20%EB%85%B8%EC%88%98%EC%A0%95%20(3).png" alt="소프라노 노수정">
         </div>
         <span class="performer-role">Soprano</span>
         <span class="performer-name">노수정</span>
       </div>
       <div class="performer-card">
         <div class="performer-photo">
-          <img src="https://github.com/seouloratorio/The-87th-Regular-Concert-of-Seouloratorio-/blob/main/%EB%A9%94%EC%A1%B0%EC%86%8C%ED%94%84%EB%9D%BC%EB%85%B8_%EC%95%8C%ED%86%A0%20%20%EC%98%A4%EC%8A%B9%EC%9D%80.png?raw=true" alt="메조소프라노 오승은">
+          <img src="https://raw.githubusercontent.com/seouloratorio/The-87th-Regular-Concert-of-Seouloratorio-/main/%EB%A9%94%EC%A1%B0%EC%86%8C%ED%94%84%EB%9D%BC%EB%85%B8_%EC%95%8C%ED%86%A0%20%20%EC%98%A4%EC%8A%B9%EC%9D%80.png" alt="메조소프라노 오승은">
         </div>
         <span class="performer-role">Mezzo-Soprano</span>
         <span class="performer-name">오승은</span>
@@ -854,14 +747,14 @@
     <div class="performer-row reveal">
       <div class="performer-card">
         <div class="performer-photo">
-          <img src="https://github.com/seouloratorio/The-87th-Regular-Concert-of-Seouloratorio-/blob/main/%ED%85%8C%EB%84%88%20%EA%B9%80%EC%84%B1%EC%9E%AC.png?raw=true" alt="테너 김성재">
+          <img src="https://raw.githubusercontent.com/seouloratorio/The-87th-Regular-Concert-of-Seouloratorio-/main/%ED%85%8C%EB%84%88%20%EA%B9%80%EC%84%B1%EC%9E%AC.png" alt="테너 김성재">
         </div>
         <span class="performer-role">Tenor</span>
         <span class="performer-name">김성재</span>
       </div>
       <div class="performer-card">
         <div class="performer-photo">
-          <img src="https://github.com/seouloratorio/The-87th-Regular-Concert-of-Seouloratorio-/blob/main/%EB%B2%A0%EC%9D%B4%EC%8A%A4%20%EC%98%A4%EC%83%81%EB%8D%95.png?raw=true" alt="바리톤 오상덕">
+          <img src="https://raw.githubusercontent.com/seouloratorio/The-87th-Regular-Concert-of-Seouloratorio-/main/%EB%B2%A0%EC%9D%B4%EC%8A%A4%20%EC%98%A4%EC%83%81%EB%8D%95.png" alt="바리톤 오상덕">
         </div>
         <span class="performer-role">Baritone</span>
         <span class="performer-name">오상덕</span>
@@ -871,7 +764,7 @@
     <div class="performer-row reveal">
       <div class="performer-card">
         <div class="performer-photo">
-          <img src="https://github.com/seouloratorio/The-87th-Regular-Concert-of-Seouloratorio-/blob/main/%EC%98%A4%EB%A5%B4%EA%B0%84%20%EC%98%A4%EC%9E%90%EA%B2%BD.png?raw=true" alt="오르간 오자경">
+          <img src="https://raw.githubusercontent.com/seouloratorio/The-87th-Regular-Concert-of-Seouloratorio-/main/%EC%98%A4%EB%A5%B4%EA%B0%84%20%EC%98%A4%EC%9E%90%EA%B2%BD.png" alt="오르간 오자경">
         </div>
         <span class="performer-role">Organ</span>
         <span class="performer-name">오자경</span>
@@ -1054,39 +947,15 @@
       width: 100%;
       box-sizing: border-box;
     ">
-      <!-- 상단 금빛 라인 -->
-      <div style="
-        position: absolute;
-        top: 0; left: 0; right: 0;
-        height: 2px;
-        background: linear-gradient(to right, transparent, var(--gold), transparent);
-      "></div>
+      <div style="position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(to right, transparent, var(--gold), transparent);"></div>
 
-      <div style="
-        font-family: 'Noto Serif KR', serif;
-        font-size: clamp(1rem, 2.5vw, 1.5rem);
-        font-weight: 600;
-        color: #ffffff;
-        letter-spacing: 0.08em;
-        line-height: 2;
-      ">
+      <div style="font-family: 'Noto Serif KR', serif; font-size: clamp(1rem, 2.5vw, 1.5rem); font-weight: 600; color: #ffffff; letter-spacing: 0.08em; line-height: 2;">
         서울오라토리오
       </div>
 
-      <div style="
-        width: 60px;
-        height: 1px;
-        background: linear-gradient(to right, transparent, var(--gold), transparent);
-        margin: 1.2rem auto;
-      "></div>
+      <div style="width: 60px; height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); margin: 1.2rem auto;"></div>
 
-      <div style="
-        font-family: 'Cormorant Garamond', serif;
-        font-size: clamp(0.95rem, 2vw, 1.3rem);
-        color: #ffffff;
-        letter-spacing: 0.12em;
-        margin-bottom: 1.2rem;
-      ">
+      <div style="font-family: 'Cormorant Garamond', serif; font-size: clamp(0.95rem, 2vw, 1.3rem); color: #ffffff; letter-spacing: 0.12em; margin-bottom: 1.2rem;">
         02-587-9271, 9277
       </div>
 
@@ -1115,13 +984,10 @@
 </footer>
 
 <script>
-  // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-      }
+      if (e.isIntersecting) e.target.classList.add('visible');
     });
   }, { threshold: 0.15 });
   reveals.forEach((el, i) => {
