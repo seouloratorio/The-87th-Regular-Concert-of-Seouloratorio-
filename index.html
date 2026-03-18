@@ -980,3 +980,924 @@
 </script>
 </body>
 </html>
+  nav a:hover { color: var(--gold); }
+
+  /* SECTIONS */
+  section {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ===== PAGE 1 - HERO ===== */
+  #page1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8rem 2rem 4rem;
+    background: radial-gradient(ellipse at 30% 20%, rgba(100,60,0,0.4) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 80%, rgba(20,10,50,0.8) 0%, transparent 50%),
+                var(--deep);
+  }
+
+  #page1::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A84C' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .hero-subtitle {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(0.85rem, 1.8vw, 1.05rem);
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 1s 0.3s forwards;
+  }
+
+  .hero-concert-no {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    color: var(--silver);
+    letter-spacing: 0.2em;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 1s 0.5s forwards;
+  }
+
+  .hero-title-ko {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(2.5rem, 7vw, 5.5rem);
+    font-weight: 700;
+    line-height: 1.15;
+    background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+    opacity: 0;
+    animation: fadeUp 1s 0.7s forwards;
+  }
+
+  .hero-divider {
+    width: 120px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    margin: 2rem auto;
+    opacity: 0;
+    animation: fadeIn 1s 1s forwards;
+  }
+
+  .hero-program {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    font-style: italic;
+    color: var(--white);
+    letter-spacing: 0.05em;
+    opacity: 0;
+    animation: fadeUp 1s 1.1s forwards;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-program-ko {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    color: var(--silver);
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeUp 1s 1.2s forwards;
+  }
+
+  .hero-info {
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 3.5rem;
+    opacity: 0;
+    animation: fadeUp 1s 1.4s forwards;
+  }
+
+  .info-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .info-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  .info-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color: var(--white);
+    letter-spacing: 0.05em;
+  }
+
+  .poster-btn {
+    font-family: 'Cinzel', serif;
+    font-size: 0.88rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    background: transparent;
+    padding: 0.9rem 2.5rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    opacity: 0;
+    animation: fadeUp 1s 1.6s forwards;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .poster-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gold);
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+    z-index: -1;
+  }
+
+  .poster-btn:hover { color: var(--deep); }
+  .poster-btn:hover::before { transform: translateX(0); }
+
+  /* POSTER MODAL */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+  .modal-overlay.active { display: flex; }
+
+  .modal-content {
+    position: relative;
+    max-width: 600px;
+    width: 100%;
+  }
+
+  .modal-content img { width: 100%; display: block; }
+
+  .modal-close {
+    position: absolute;
+    top: -2.5rem;
+    right: 0;
+    background: none;
+    border: none;
+    color: var(--gold);
+    font-size: 1.5rem;
+    cursor: pointer;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.1em;
+  }
+
+  /* ===== PAGE 2 - PROGRAM NOTES ===== */
+  #page2 {
+    padding: 8rem 2rem;
+    background: linear-gradient(180deg, var(--deep) 0%, var(--ink) 30%, var(--mist) 70%, var(--ink) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .program-inner { max-width: 900px; width: 100%; }
+
+  .section-eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .section-eyebrow::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--gold-dark), transparent);
+  }
+
+  .program-heading {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--white);
+    margin-bottom: 3rem;
+  }
+
+  .program-heading span { color: var(--gold); }
+
+  .program-body p {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+    line-height: 2;
+    color: rgba(245,240,232,0.82);
+    margin-bottom: 1.8rem;
+    text-indent: 1.5em;
+  }
+
+  /* ===== PAGE 3 - PERFORMERS ===== */
+  #page3 {
+    padding: 8rem 2rem;
+    background: var(--deep);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .performers-header {
+    text-align: center;
+    margin-bottom: 5rem;
+    width: 100%;
+    max-width: 900px;
+  }
+
+  .performers-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    letter-spacing: 0.2em;
+    color: var(--white);
+    margin-bottom: 1rem;
+  }
+
+  .performers-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    max-width: 900px;
+    width: 100%;
+  }
+
+  .performer-row {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .performer-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    width: 200px;
+  }
+
+  .performer-photo {
+    width: 240px;
+    height: 310px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--gold-dark);
+    box-shadow: 0 0 30px rgba(201,168,76,0.15), 0 0 0 6px rgba(201,168,76,0.08);
+    transition: all 0.4s;
+    position: relative;
+  }
+
+  .performer-photo::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.15), transparent 60%);
+  }
+
+  .performer-card:hover .performer-photo {
+    border-color: var(--gold);
+    box-shadow: 0 0 50px rgba(201,168,76,0.3), 0 0 0 8px rgba(201,168,76,0.12);
+    transform: translateY(-4px);
+  }
+
+  .performer-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+  }
+
+  .performer-role {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  .performer-name {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 1.1rem;
+    color: var(--white);
+    text-align: center;
+    margin-top: -0.4rem;
+  }
+
+  .ensemble-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .ensemble-item {
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 0;
+    text-align: center;
+    background: rgba(201,168,76,0.04);
+    width: 320px;
+    height: 64px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .ensemble-item .role {
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  .ensemble-item .name {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 1.1rem;
+    color: var(--white);
+    text-align: center;
+  }
+
+  /* ===== PAGE 4 - TICKETS ===== */
+  #page4 {
+    padding: 8rem 2rem;
+    background: linear-gradient(180deg, var(--deep) 0%, var(--ink) 50%, var(--deep) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .tickets-header { text-align: center; margin-bottom: 3rem; width: 100%; }
+
+  .tickets-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    letter-spacing: 0.2em;
+    color: var(--white);
+    margin-bottom: 1rem;
+  }
+
+  .tickets-inner { max-width: 900px; width: 100%; }
+
+  .ticket-section {
+    border: 1px solid rgba(201,168,76,0.4);
+    padding: 2.5rem;
+    background: rgba(201,168,76,0.04);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ticket-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+  }
+
+  .ticket-prices {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+
+  .ticket-tier {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .tier-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.92rem;
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  .tier-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--white);
+  }
+
+  .ticket-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .ticket-link {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 1rem 2rem;
+    text-decoration: none;
+    transition: all 0.3s;
+    text-align: center;
+    line-height: 2;
+    white-space: nowrap;
+  }
+
+  .ticket-link:hover { background: var(--gold); color: var(--deep); }
+  .ticket-tel { font-size: 0.78rem; opacity: 0.8; letter-spacing: 0.15em; }
+
+  @media (max-width: 600px) {
+    .ticket-link { white-space: normal; width: 100%; letter-spacing: 0.05em; }
+    .ticket-links { flex-direction: column; }
+  }
+
+  /* ===== PAGE 5 - DIRECTIONS ===== */
+  #page5 {
+    padding: 8rem 2rem 5rem;
+    background: linear-gradient(180deg, var(--deep) 0%, var(--ink) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .directions-inner { max-width: 900px; width: 100%; }
+
+  .venue-name {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.3rem, 3vw, 2rem);
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .venue-name-ko {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    color: var(--silver);
+    font-family: 'Noto Serif KR', serif;
+    margin-bottom: 3rem;
+    margin-top: 0.6rem;
+  }
+
+  .map-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border: 1px solid rgba(201,168,76,0.3);
+    margin-bottom: 3rem;
+  }
+
+  .map-wrapper .root_daum_roughmap { position: absolute !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; }
+  .map-wrapper .roughmap_wrap, .map-wrapper .wrap_map { width: 100% !important; height: 100% !important; }
+  .map-wrapper iframe { position: absolute !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; border: none !important; filter: grayscale(30%) brightness(0.9); }
+
+  @media (max-width: 480px) { .map-wrapper { padding-bottom: 75%; } }
+
+  .transport-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 3rem;
+    border: 1px solid rgba(201,168,76,0.25);
+  }
+
+  .transport-card {
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    background: rgba(255,255,255,0.02);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .transport-card:last-child { border-bottom: none; }
+
+  .transport-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.4rem 1.8rem;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s;
+  }
+
+  .transport-header:hover { background: rgba(201,168,76,0.06); }
+  .transport-icon { font-size: 1.4rem; flex-shrink: 0; }
+
+  .transport-type {
+    font-family: 'Cinzel', serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    flex: 1;
+  }
+
+  .transport-arrow { font-size: 0.75rem; color: var(--gold); transition: transform 0.3s ease; opacity: 0.7; }
+  .transport-card.open .transport-arrow { transform: rotate(180deg); }
+
+  .transport-info {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #111111;
+    font-weight: 900;
+    background: #f2f2f2;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+    padding: 0 1.8rem;
+  }
+
+  .transport-card.open .transport-info { max-height: 1200px; padding: 1.2rem 1.8rem 1.8rem; }
+
+  /* SCROLL ANIMATIONS */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; transform: translateY(20px); }
+  }
+  @keyframes fadeIn {
+    to { opacity: 1; }
+    from { opacity: 0; }
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.75rem;
+    color: rgba(184,184,204,0.5);
+    letter-spacing: 0.1em;
+    border-top: 1px solid rgba(201,168,76,0.1);
+  }
+
+  @media (max-width: 600px) {
+    nav { gap: 0.7rem; padding: 0.9rem 0.5rem; flex-wrap: nowrap; }
+    nav a { font-size: 0.75rem; letter-spacing: 0.02em; white-space: nowrap; }
+    .hero-info { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#page1">공연 정보</a>
+  <a href="#page2">프로그램</a>
+  <a href="#page3">출연진</a>
+  <a href="#page4">티켓 예매</a>
+  <a href="#page5">오시는 길</a>
+  <a href="#contact">문의</a>
+</nav>
+
+<!-- PAGE 1: HERO -->
+<section id="page1">
+  <p class="hero-subtitle">Seoul0ratorio</p>
+  <p class="hero-concert-no">제87회 서울오라토리오 정기연주회</p>
+  <h1 class="hero-title-ko">영혼을 울리는<br>음악회 IX</h1>
+  <div class="hero-divider"></div>
+  <p class="hero-program">W.A.Mozart〈Requiem〉〈Te Deum〉</p>
+  <p class="hero-program-ko">모차르트〈레퀴엠〉〈테 데움〉</p>
+  <div class="hero-info">
+    <div class="info-item">
+      <span class="info-value">2026년 3월 18일 (수) 오후 7시 30분<br> 예술의전당 콘서트홀</span>
+      <br>
+      <span class="info-value"></span>
+    </div>
+  </div>
+  <button class="poster-btn" onclick="document.querySelector('.modal-overlay').classList.add('active')">
+    ✦ 포스터 보기 ✦
+  </button>
+</section>
+
+<!-- POSTER MODAL -->
+<div class="modal-overlay" onclick="if(event.target===this)this.classList.remove('active')">
+  <div class="modal-content">
+    <button class="modal-close" onclick="document.querySelector('.modal-overlay').classList.remove('active')">× 닫기</button>
+    <img src="https://raw.githubusercontent.com/seouloratorio/The-87th-Regular-Concert-of-Seouloratorio-/main/%EC%A0%9C87%ED%9A%8C%20%EC%84%9C%EC%9A%B8%EC%98%A4%EB%9D%BC%ED%86%A0%EB%A6%AC%EC%98%A4%20%EC%A0%95%EA%B8%B0%EC%97%B0%EC%A3%BC%ED%9A%8C.jpg" alt="공연 포스터">
+  </div>
+</div>
+
+
+<!-- PAGE 2: PROGRAM NOTES -->
+<section id="page2">
+  <div class="program-inner">
+    <div class="section-eyebrow reveal">Program Notes</div>
+    <h2 class="program-heading reveal">비운의 거장<br><span>모차르트의 마지막 숨결</span></h2>
+    <div class="program-body reveal">
+      <p>오라토리움 전문예술단체 서울오라토리오는 제87회 정기연주회에서 서양 음악사의 불멸의 유산, 볼프강 아마데우스 모차르트의 &lt;테 데움 &gt;과 &lt;레퀴엠&gt;을 선보입니다. 이번 공연은 서울오라토리오의 브랜드 시리즈인 '영혼을 울리는 음악회' 아홉 번째 여정으로, 삶과 죽음, 고통과 환희를 아우르는 깊은 감동의 시간을 선사할 예정입니다.</p>
+      <p>공연의 문을 여는 &lt;테 데움 &gt;은 '주님을 찬미합니다'라는 고백으로 시작되는 순수한 신앙의 노래입니다. 고전파 특유의 균형잡힌 선율과 곡 전체에 흐르는 긴밀한 구조가 돋보이는 이 작품은 인간이 신 앞에 드리는 가장 순수한 감사와 찬미를 담고 있습니다.</p>
+      <p>공연의 두 번째 프로그램인 &lt;레퀴엠 &gt;은 모차르트 최후의 유작이자, 그가 자신의 죽음을 예견하며 쓴 듯한 처절하고도 아름다운 진혼곡입니다. 이 곡은 인간의 두려움과 심판, 그리고 구원을 향한 간절한 염원이 드라마틱하게 녹아있습니다. 죽음을 앞둔 천재의 고뇌가 서린 각 악장은 단순히 슬픔에 머물지 않고, 마지막 순간에 도달하는 평온한 안식과 영원한 빛을 향하고 있습니다.</p>
+      <p>서울오라토리오가 선사하는 이 장엄한 선율은 현대인들에게 삶의 소중함을 되새기게 하며, 가슴 깊은 곳에서 피어오르는 전율과 위로를 경험하게 할 것입니다.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- PAGE 3: PERFORMERS -->
+<section id="page3">
+  <div class="performers-header">
+    <div class="section-eyebrow reveal" style="margin:0 0 1rem; width:100%;">Artists</div>
+    <h2 class="performers-title reveal">출연진</h2>
+  </div>
+  <div class="performers-grid">
+    <!-- 1행: 소프라노, 메조소프라노 -->
+    <div class="performer-row reveal">
+      <div class="performer-card">
+        <div class="performer-photo">
+          <img src="https://raw.githubusercontent.com/seouloratorio/The-87th-Regular-Concert-of-Seouloratorio-/main/%EC%86%8C%ED%94%84%EB%9D%BC%EB%85%B8%20%EB%85%B8%EC%88%98%EC%A0%95.png" alt="소프라노 노수정" style="object-position: top center;">
+        </div>
+        <span class="performer-role">Soprano</span>
+        <span class="performer-name">노수정</span>
+      </div>
+      <div class="performer-card">
+        <div class="performer-photo">
+          <img src="https://raw.githubusercontent.com/seouloratorio/The-87th-Regular-Concert-of-Seouloratorio-/main/%EB%A9%94%EC%A1%B0%EC%86%8C%ED%94%84%EB%9D%BC%EB%85%B8%20%EC%98%A4%EC%8A%B9%EC%9D%80.png" alt="메조소프라노 오승은" style="object-position: top center;">
+        </div>
+        <span class="performer-role">Mezzo-Soprano</span>
+        <span class="performer-name">오승은</span>
+      </div>
+    </div>
+    <!-- 2행: 테너, 바리톤 -->
+    <div class="performer-row reveal">
+      <div class="performer-card">
+        <div class="performer-photo">
+          <img src="https://raw.githubusercontent.com/seouloratorio/The-87th-Regular-Concert-of-Seouloratorio-/main/%ED%85%8C%EB%84%88%20%EA%B9%80%EC%84%B1%EC%9E%AC.png" alt="테너 김성재" style="object-position: top center;">
+        </div>
+        <span class="performer-role">Tenor</span>
+        <span class="performer-name">김성재</span>
+      </div>
+      <div class="performer-card">
+        <div class="performer-photo">
+          <img src="https://raw.githubusercontent.com/seouloratorio/The-87th-Regular-Concert-of-Seouloratorio-/main/%EB%B0%94%EB%A6%AC%ED%86%A4%20%EC%98%A4%EC%83%81%EB%8D%95.png" alt="바리톤 오상덕" style="object-position: top center;">
+        </div>
+        <span class="performer-role">Baritone</span>
+        <span class="performer-name">오상덕</span>
+      </div>
+    </div>
+    <!-- 3행: 오르간 -->
+    <div class="performer-row reveal">
+      <div class="performer-card">
+        <div class="performer-photo">
+          <img src="https://raw.githubusercontent.com/seouloratorio/The-87th-Regular-Concert-of-Seouloratorio-/main/%EC%98%A4%EB%A5%B4%EA%B0%84%20%EC%98%A4%EC%9E%90%EA%B2%BD.png" alt="오르간 오자경" style="object-position: top center;">
+        </div>
+        <span class="performer-role">Organ</span>
+        <span class="performer-name">오자경</span>
+      </div>
+    </div>
+    <div class="ensemble-row reveal">
+      <div class="ensemble-item">
+        <span class="role">Chorus</span>
+        <span class="name">서울오라토리오 합창단</span>
+      </div>
+      <div class="ensemble-item">
+        <span class="role">Orchestra</span>
+        <span class="name">서울오라토리오 오케스트라</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- PAGE 4: TICKETS -->
+<section id="page4">
+  <div class="tickets-inner">
+    <div class="tickets-header">
+      <div class="section-eyebrow reveal" style="margin:0 0 1rem; width:100%;">Tickets</div>
+      <h2 class="tickets-title reveal">티켓 예매</h2>
+    </div>
+
+    <div class="ticket-section reveal" style="padding: 4rem 2rem;">
+      <div style="font-family: 'Noto Serif KR', serif; font-size: clamp(1.8rem, 5vw, 3rem); font-weight: 700; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 1.5rem;">티켓 판매 종료</div>
+      <div style="width: 60px; height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); margin: 0 auto 1.5rem;"></div>
+      <div style="font-family: 'Cormorant Garamond', serif; font-size: clamp(0.95rem, 2vw, 1.2rem); color: var(--silver); letter-spacing: 0.08em;">티켓 예매가 마감되었습니다.</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- PAGE 5: DIRECTIONS -->
+<section id="page5">
+  <div class="directions-inner">
+    <div class="section-eyebrow reveal">Getting to the Venue</div>
+    <h2 class="performers-title reveal" style="text-align:center; margin-bottom:1.5rem;">오시는 길</h2>
+    <div class="venue-name reveal">Seoul Arts Center</div>
+    <div class="venue-name-ko reveal">예술의전당 콘서트홀<br><br>서울특별시 서초구 남부순환로 2406</div>
+
+    <!-- 카카오 Roughmap -->
+    <div class="map-wrapper">
+      <div id="daumRoughmapContainer1772291715001" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+    </div>
+
+    <script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+    <script charset="UTF-8">
+      new daum.roughmap.Lander({
+        "timestamp" : "1772291715001",
+        "key" : "i6q4cbyp78e",
+        "mapWidth" : "640",
+        "mapHeight" : "360"
+      }).render();
+    </script>
+
+    <p style="text-align:center; font-size:0.75rem; color:rgba(255,255,255,0.5); margin-bottom:0.8rem; letter-spacing:0.05em;">해당 항목을 누르면 내용을 볼 수 있습니다</p>
+    <div class="transport-grid reveal">
+      <div class="transport-card">
+        <div class="transport-header" onclick="toggleCard(this)">
+          <div class="transport-icon">🚇</div>
+          <div class="transport-type">지하철</div>
+          <div class="transport-arrow">▼</div>
+        </div>
+        <div class="transport-info">
+          <strong style="color:#FF6820; font-weight:900;">3호선 남부터미널역 5번 출구</strong><br>
+          도보이동 (약 5~10분 소요)<br>마을버스 22번(초록색)을 타고 두 정거장 이동
+          <br><br>
+          <strong style="color:#00A550; font-weight:900;">2호선 서초역 1번 출구</strong><br>
+          도보 약 15분 거리
+          <br><br>
+          <strong style="color:#003865; font-weight:900;">4호선 사당역 1번 출구</strong><br>
+          마을버스 17번(초록색)을 타고 16개 정거장 이동
+        </div>
+      </div>
+      <div class="transport-card">
+        <div class="transport-header" onclick="toggleCard(this)">
+          <div class="transport-icon">🚌</div>
+          <div class="transport-type">버스</div>
+          <div class="transport-arrow">▼</div>
+        </div>
+        <div class="transport-info">
+          <strong style="color:#111111; font-weight:900;">예술의전당 정류장</strong><br>
+          <span style="color:#0066CC; font-weight:900;">간선: 406, 405</span><br>
+          <span style="color:#3EA832; font-weight:900;">지선: 5413</span><br>
+          <span style="color:#E51E24; font-weight:900;">직행: 1500-2, 1553</span><br>
+          <span style="color:#5AB55E; font-weight:900;">마을: 서초11, 서초17, 서초22</span>
+        </div>
+      </div>
+      <div class="transport-card">
+        <div class="transport-header" onclick="toggleCard(this)">
+          <div class="transport-icon">🚗</div>
+          <div class="transport-type">자가용 · 주차</div>
+          <div class="transport-arrow">▼</div>
+        </div>
+        <div class="transport-info" style="padding:0;">
+          <div style="padding: 1.4rem 1.8rem 1.2rem;">
+            <div style="display:flex; align-items:center; gap:0.8rem; margin-bottom:1rem;">
+              <div style="width:3px; height:1.2rem; background:#C9A84C; border-radius:2px; flex-shrink:0;"></div>
+              <span style="font-family:'Noto Serif KR',serif; font-size:1.1rem; letter-spacing:0.05em; color:#111111; font-weight:900;">남부순환로</span>
+            </div>
+            <div style="margin-bottom:0.8rem;">
+              <span style="font-weight:900; color:#0066CC;">양재 방면에서 오시는 경우</span><br>
+              경부고속도로 서초 IC 예술의전당 방향 → 남부순환로 사당방면으로 직진 → 예술의전당앞 교차로 좌측에 예술의전당
+            </div>
+            <div>
+              <span style="font-weight:900; color:#0066CC;">사당 방면에서 오시는 경우</span><br>
+              남부순환로 양재방면으로 직진 → 예술의전당앞 교차로 우측에 예술의전당
+            </div>
+          </div>
+          <div style="height:1px; background: linear-gradient(to right, transparent, rgba(201,168,76,0.4), transparent); margin: 0 1.8rem;"></div>
+          <div style="padding: 1.2rem 1.8rem 1.4rem;">
+            <div style="display:flex; align-items:center; gap:0.8rem; margin-bottom:1rem;">
+              <div style="width:3px; height:1.2rem; background:#C9A84C; border-radius:2px; flex-shrink:0;"></div>
+              <span style="font-family:'Noto Serif KR',serif; font-size:1.1rem; letter-spacing:0.05em; color:#111111; font-weight:900;">올림픽대로</span>
+            </div>
+            <div style="margin-bottom:0.8rem;">
+              <span style="font-weight:900; color:#0066CC;">공항 방면에서 오시는 경우</span><br>
+              올림픽대로 반포대교 분기점에서 고속터미널 방면으로 좌회전 → 곧바로 반포대교 고가차로를 타고 서초역 방면으로 직진 → 서초3동 사거리를 지나 우면산 터널 옆으로 우측 도로 진입 → 예술의전당앞 교차로 정면에 예술의전당
+            </div>
+            <div>
+              <span style="font-weight:900; color:#0066CC;">잠실 방면에서 오시는 경우</span><br>
+              올림픽대로 한남대교 분기점에서 한남IC 진입 → 곧이어 한남IC 부산방향으로 경부고속도로 진입 → 서초IC 예술의전당 방향으로 나와 사당방면으로 직진 → 예술의전당앞 교차로 좌측에 예술의전당
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact" style="
+  padding: 8rem 0;
+  background: linear-gradient(180deg, var(--ink) 0%, var(--deep) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: auto;
+">
+  <div style="max-width: 900px; width: 100%; padding: 0 2rem; box-sizing: border-box;">
+    <div class="section-eyebrow reveal" style="width:100%;">Contact</div>
+    <h2 class="performers-title reveal" style="text-align: center; margin-bottom: 3.5rem;">문의</h2>
+
+    <div class="reveal" style="
+      border: 1px solid rgba(201,168,76,0.4);
+      background: rgba(201,168,76,0.04);
+      position: relative;
+      overflow: hidden;
+      padding: 3.5rem 3rem;
+      text-align: center;
+      width: 100%;
+      box-sizing: border-box;
+    ">
+      <div style="position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(to right, transparent, var(--gold), transparent);"></div>
+
+      <div style="font-family: 'Noto Serif KR', serif; font-size: clamp(1rem, 2.5vw, 1.5rem); font-weight: 600; color: #ffffff; letter-spacing: 0.08em; line-height: 2;">
+        서울오라토리오
+      </div>
+
+      <div style="width: 60px; height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); margin: 1.2rem auto;"></div>
+
+      <div style="font-family: 'Cormorant Garamond', serif; font-size: clamp(0.95rem, 2vw, 1.3rem); color: #ffffff; letter-spacing: 0.12em; margin-bottom: 1.2rem;">
+        02-587-9271, 9277
+      </div>
+
+      <div style="width: 100%; text-align: center;">
+        <a href="http://www.seouloratorio.or.kr" target="_blank" style="
+          font-family: 'Cinzel', serif;
+          font-size: clamp(0.75rem, 1.5vw, 1rem);
+          color: #ffffff;
+          letter-spacing: 0.15em;
+          text-decoration: underline;
+          text-underline-offset: 0.4em;
+          text-decoration-color: rgba(255,255,255,0.5);
+          transition: color 0.3s;
+          display: inline;
+        "
+        onmouseover="this.style.color='var(--gold)'; this.style.textDecorationColor='var(--gold)';"
+        onmouseout="this.style.color='#ffffff'; this.style.textDecorationColor='rgba(255,255,255,0.5)';"
+        >www.seouloratorio.or.kr</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  서울오라토리오 · 02-587-9271, 9277 · www.seouloratorio.or.kr
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.15 });
+  reveals.forEach((el, i) => {
+    el.style.transitionDelay = (i % 4) * 0.1 + 's';
+    observer.observe(el);
+  });
+</script>
+<script>
+  function toggleCard(header) {
+    const card = header.parentElement;
+    card.classList.toggle('open');
+  }
+</script>
+</body>
+</html>
